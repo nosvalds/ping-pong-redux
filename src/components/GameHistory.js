@@ -16,13 +16,18 @@ const GameHistory = ({ gameHistory }) => (
                     <tr>
                         <th scope="row" rowSpan="2">{ i + 1 }</th>
                         <td>Player 1</td>
-                        <td>{ game.player_1.won ? "Win" : "Lose"}</td>
+                        { game.player_1.won ?
+                            <td className="table-success">Win</td> : 
+                            <td className="table-danger">Lose</td>
+                        }
                         <td>{ game.player_1.score }</td>
                     </tr>
                     <tr key={ i }>
-                        {/* <th scope="row" rowSpan="2">{ i + 1 }</th> */}
                         <td>Player 2</td>
-                        <td>{ game.player_2.won ? "Win" : "Lose"}</td>
+                        { game.player_2.won ?
+                            <td className="table-success">Win</td> : 
+                            <td className="table-danger">Lose</td>
+                        }
                         <td>{ game.player_2.score }</td>
                     </tr>
                 </React.Fragment>
