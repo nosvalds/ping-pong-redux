@@ -13,7 +13,8 @@ const initial = {
   player2: 0,
   server: 1,
   winner: 0,
-  gameHistory: []
+  gameHistory: [],
+  language: "English"
 };
 
 const incrementP1 = state => ({...state, player1: state.player1 + 1});
@@ -84,6 +85,10 @@ const reducer = (state, action) => {
       ...initial,
       gameHistory: state.gameHistory
     }; // to reset return initial state, but preserve game history
+    case "TOGGLE_LANGUAGE": return {
+      ...state,
+      language: state.language === "English" ? "Esperanto" : "English"
+    }
     default: return state;
   }
 }
@@ -116,6 +121,8 @@ const render = () => {
        handleIncrementP1={ () => store.dispatch({ type: "INCREMENT_P1" }) }
        handleIncrementP2={ () => store.dispatch({ type: "INCREMENT_P2" }) }
        handleReset = { () => store.dispatch({ type: "RESET" }) }
+       handleLanguage={ () => store.dispatch({ type: "TOGGLE_LANGUAGE" }) }
+       language={ state.language }
       />
     </React.StrictMode>,
     document.getElementById('root') 

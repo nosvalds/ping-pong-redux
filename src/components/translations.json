@@ -1,0 +1,30 @@
+{
+   "player": {
+       "English": "Player",
+       "Esperanto": "Ludanto"
+   },
+   "serving": {
+       "English": "Serving",
+       "Esperanto": "Servas"
+   },
+   "reset": {
+       "English": "Reset",
+       "Esperanto": "Restarigi"
+   },
+   "wins": {
+       "English": "Wins",
+       "Esperanto": "Venkoj"
+   },
+   "game": {
+       "English": "Game",
+       "Esperanto": "Ludo"
+   },
+   "loss": {
+       "English": "Loss",
+       "Esperanto": "Perdo"
+   },
+   "score": {
+       "English": "Score",
+       "Esperanto": "Poentaro"
+   }
+}

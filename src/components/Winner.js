@@ -1,11 +1,12 @@
 import React from 'react';
+import translations from './translations.json'
 
-const Winner = ({ winner }) => (
+const Winner = ({ winner, language }) => (
     winner !== 0 ?
     <h2 
         className="alert alert-success"
     >
-        Player { winner } wins!
+        {`${translations.player[language]} ${ winner } ${translations.wins[language]}!`}
     </h2>
     : null
 )
