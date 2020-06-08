@@ -10,13 +10,26 @@ import { createStore } from 'redux';
 const initial = {
   player1: 0,
   player2: 0,
+  server: 1
 };
+
+const incrementP1 = state => ({...state, player1: state.player1 + 1});
+const incrementP2 = state => ({...state, player2: state.player2 + 1});
+const server = state => {
+  if ((state.player1 + state.player2) % 5 === 0) { // every 5 points swap the server
+    return {
+      ...state,
+      server: state.server === 1 ? 2 : 1 // this swaps server between 1 and 2
+    }
+  } 
+  return state; // must always return state if we don't invoke the if statement
+}
 
 // reducer function
 const reducer = (state, action) => {
   switch (action.type) {
-    case "INCREMENT_P1": return {...state, player1: state.player1 + 1}; // increment player 1's score
-    case "INCREMENT_P2": return {...state, player2: state.player2 + 1}; // increment player 2's score
+    case "INCREMENT_P1": return server(incrementP1(state)); // increment player 1's score
+    case "INCREMENT_P2": return server(incrementP2(state)); // increment player 2's score
     case "RESET": return initial; // to reset return initial state
     default: return state;
   }
@@ -36,6 +49,7 @@ const render = () => {
   ReactDOM.render(
     <React.StrictMode> 
       <App 
+       server={ state.server }
        player1={ state.player1 } 
        player2={ state.player2 }
        handleIncrementP1={ () => store.dispatch({ type: "INCREMENT_P1" }) }
