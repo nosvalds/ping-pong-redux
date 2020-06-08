@@ -1,6 +1,6 @@
 import React from "react";
 
-const App = () => (
+const App = ({ player1, player2 }) => (
     <React.Fragment>
         {/* header */}
         <header className="jumbotron mt-4 mb-0">
@@ -13,7 +13,7 @@ const App = () => (
                 <div className="card text-center bg-dark text-white">
                     <h5 className="card-header">Player 1</h5>
                     <div className="card-body">
-                        <p className="card-text display-1">{/* player1 score */}</p>
+                        <p className="card-text display-1">{ player1 }</p>
                     </div>
                     <div className="card-footer">
                         <button className="form-control btn btn-success">+</button>
@@ -25,7 +25,7 @@ const App = () => (
                 <div className="card text-center">
                     <h5 className="card-header">Player 2</h5>
                     <div className="card-body">
-                        <p className="card-text display-1">{/* player1 score */}</p>
+                        <p className="card-text display-1">{ player2 }</p>
                     </div>
                     <div className="card-footer">
                         <button className="form-control btn btn-success">+</button>
