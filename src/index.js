@@ -16,8 +16,11 @@ const initial = {
 
 const incrementP1 = state => ({...state, player1: state.player1 + 1});
 const incrementP2 = state => ({...state, player2: state.player2 + 1});
+
+
 const server = state => {
-  if ((state.player1 + state.player2) % 5 === 0) { // every 5 points swap the server
+  let serves = (state.player1 >= 20 && state.player2 >= 20) ? 2 : 5 // The server should start to alternate every two serves if both scores get to 20
+  if ((state.player1 + state.player2) % serves === 0) {
     return {
       ...state,
       server: state.server === 1 ? 2 : 1 // this swaps server between 1 and 2
