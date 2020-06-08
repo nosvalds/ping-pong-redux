@@ -1,7 +1,14 @@
 import React from 'react';
 import translations from './translations.json'
 
-const ScoreCard = ({ server, player, score, handleIncrement, gameOver, language }) => (
+const ScoreCard = ({ 
+    server, 
+    player, 
+    score, 
+    handleIncrement, 
+    gameOver, 
+    language 
+}) => (
     <div className="col-md-6 mt-4">
         <div 
             className={ (server === +player ? "bg-dark text-white " : "") + "card text-center" }

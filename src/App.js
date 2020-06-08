@@ -5,7 +5,18 @@ import Winner from "./components/Winner";
 import GameHistory from "./components/GameHistory";
 import translations from './components/translations.json'
 
-const App = ({ server, player1, player2, winner, gameHistory, handleIncrementP1, handleIncrementP2, handleReset, language, handleLanguage }) => (
+const App = ({ 
+  server, 
+  player1, 
+  player2,
+  winner, 
+  gameHistory, 
+  handleIncrementP1, 
+  handleIncrementP2, 
+  handleReset, 
+  language, 
+  handleLanguage 
+}) => (
     <React.Fragment>
         {/* header */}
         <Header title={ "PongPing" }/>
@@ -46,6 +57,7 @@ const App = ({ server, player1, player2, winner, gameHistory, handleIncrementP1,
           >
             { translations.reset[language] }
           </button>
+
           { /* language button */}
           <button 
             className="btn btn-secondary ml-4"
