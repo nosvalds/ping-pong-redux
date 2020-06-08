@@ -16,12 +16,14 @@ const App = ({ server, player1, player2, winner, handleIncrementP1, handleIncrem
             player={ 1 }
             score={ player1 }
             handleIncrement={ handleIncrementP1 }
+            gameOver={ winner !== 0 }
           />
           <ScoreCard 
             server={ server }
             player={ 2 }
             score={ player2 }
             handleIncrement={ handleIncrementP2 }
+            gameOver={ winner !== 0 }
           />
         </div>
 
