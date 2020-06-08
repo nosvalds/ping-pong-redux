@@ -1,6 +1,6 @@
 import React from "react";
 
-const App = ({ player1, player2, handleIncrementP1 }) => (
+const App = ({ player1, player2, handleIncrementP1, handleIncrementP2 }) => (
     <React.Fragment>
         {/* header */}
         <header className="jumbotron mt-4 mb-0">
@@ -31,7 +31,10 @@ const App = ({ player1, player2, handleIncrementP1 }) => (
                         <p className="card-text display-1">{ player2 }</p>
                     </div>
                     <div className="card-footer">
-                        <button className="form-control btn btn-success">+</button>
+                        <button 
+                          className="form-control btn btn-success"
+                          onClick={ handleIncrementP2 }
+                        >+</button>
                     </div>
                 </div>
             </div>
