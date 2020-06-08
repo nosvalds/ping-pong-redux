@@ -17,6 +17,7 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT_P1": return {...state, player1: state.player1 + 1}; // increment player 1's score
     case "INCREMENT_P2": return {...state, player2: state.player2 + 1}; // increment player 2's score
+    case "RESET": return initial; // to reset return initial state
     default: return state;
   }
 }
@@ -37,8 +38,9 @@ const render = () => {
       <App 
        player1={ state.player1 } 
        player2={ state.player2 }
-       handleIncrementP1={ () => store.dispatch({type: "INCREMENT_P1"})}
-       handleIncrementP2={ () => store.dispatch({type: "INCREMENT_P2"})}
+       handleIncrementP1={ () => store.dispatch({ type: "INCREMENT_P1" }) }
+       handleIncrementP2={ () => store.dispatch({ type: "INCREMENT_P2" }) }
+       handleReset = { () => store.dispatch({ type: "RESET" }) }
       />
     </React.StrictMode>,
     document.getElementById('root') 
