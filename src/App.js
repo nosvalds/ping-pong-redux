@@ -1,6 +1,6 @@
 import React from "react";
 
-const App = ({ server, player1, player2, handleIncrementP1, handleIncrementP2, handleReset }) => (
+const App = ({ server, player1, player2, winner, handleIncrementP1, handleIncrementP2, handleReset }) => (
     <React.Fragment>
         {/* header */}
         <header className="jumbotron mt-4 mb-0">
@@ -47,7 +47,14 @@ const App = ({ server, player1, player2, handleIncrementP1, handleIncrementP2, h
         </div>
 
         { /* winner message */}
-        <h2 className="alert alert-success">Player {/* winning player here */} wins!</h2>
+        { winner !== "" ? 
+          <h2 
+            className="alert alert-success"
+          >
+            Player { winner } wins!
+          </h2>
+          : null
+        }
 
         <hr />
 

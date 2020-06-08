@@ -10,7 +10,8 @@ import { createStore } from 'redux';
 const initial = {
   player1: 0,
   player2: 0,
-  server: 1
+  server: 1,
+  winner: "",
 };
 
 const incrementP1 = state => ({...state, player1: state.player1 + 1});
@@ -25,18 +26,33 @@ const server = state => {
   return state; // must always return state if we don't invoke the if statement
 }
 
+// function to check if there has been a winner after each point
+const checkWinner = state => {
+  if (state.player1 === 21) {
+    return {...state, winner: 1}
+  }
+  if (state.player2 === 21) {
+    return {...state, winner: 2}
+  }
+  return state;
+}
+
 // reducer function
 const reducer = (state, action) => {
   switch (action.type) {
-    case "INCREMENT_P1": return server(incrementP1(state)); // increment player 1's score
-    case "INCREMENT_P2": return server(incrementP2(state)); // increment player 2's score
+    case "INCREMENT_P1": return checkWinner(server(incrementP1(state))); // increment player 1's score
+    case "INCREMENT_P2": return checkWinner(server(incrementP2(state))); // increment player 2's score
     case "RESET": return initial; // to reset return initial state
     default: return state;
   }
 }
 
 // store set up
-const store = createStore(reducer, initial);
+const store = createStore(
+  reducer,
+  initial,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 // rendering
 
@@ -52,6 +68,7 @@ const render = () => {
        server={ state.server }
        player1={ state.player1 } 
        player2={ state.player2 }
+       winner={ state.winner }
        handleIncrementP1={ () => store.dispatch({ type: "INCREMENT_P1" }) }
        handleIncrementP2={ () => store.dispatch({ type: "INCREMENT_P2" }) }
        handleReset = { () => store.dispatch({ type: "RESET" }) }
