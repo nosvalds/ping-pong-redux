@@ -11,7 +11,7 @@ const initial = {
   player1: 0,
   player2: 0,
   server: 1,
-  winner: "",
+  winner: 0,
 };
 
 const incrementP1 = state => ({...state, player1: state.player1 + 1});
