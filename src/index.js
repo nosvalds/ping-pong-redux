@@ -27,11 +27,12 @@ const server = state => {
 }
 
 // function to check if there has been a winner after each point
+// add logic to ensure player is winning by at least 2 points before declaring a winner
 const checkWinner = state => {
-  if (state.player1 === 21) {
+  if (state.player1 >= 21 && state.player1 - state.player2 >= 2) {
     return {...state, winner: 1}
   }
-  if (state.player2 === 21) {
+  if (state.player2 >= 21 && state.player2 - state.player1 >= 2) {
     return {...state, winner: 2}
   }
   return state;
