@@ -8,13 +8,14 @@ import { createStore } from 'redux';
 
 // initial state for the entire App
 const initial = {
-  player1: 4,
+  player1: 0,
   player2: 0,
 };
 
 // reducer function
 const reducer = (state, action) => {
   switch (action.type) {
+    case "INCREMENT_P1": return {...state, player1: state.player1 + 1}; // increment player 1's score
     default: return state;
   }
 }
@@ -35,6 +36,7 @@ const render = () => {
       <App 
        player1={ state.player1 } 
        player2={ state.player2 }
+       handleIncrementP1={ () => store.dispatch({type: "INCREMENT_P1"})}
       />
     </React.StrictMode>,
     document.getElementById('root') 
