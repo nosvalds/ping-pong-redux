@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom'; // renders React into the browser, could replace with ReactNative for an iOS app for example
 import './index.css';
 import App from './App';
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
+import persistState from "redux-localstorage";
 
 // Redux stuff lives here
 
@@ -87,11 +88,13 @@ const reducer = (state, action) => {
   }
 }
 
+// set up local storage
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // store set up
 const store = createStore(
   reducer,
   initial,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  composeEnhancers(persistState())
 );
 
 // rendering
