@@ -12,7 +12,6 @@ const GameHistory = ({ gameHistory }) => (
         </thead>
         <tbody>
             { gameHistory.map((game, i) => (
-                // Map over score for player1/player2 and add key
                 <React.Fragment key= { i }>
                     <tr>
                         <th scope="row" rowSpan="2">{ i + 1 }</th>
