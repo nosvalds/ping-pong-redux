@@ -3,8 +3,9 @@ import Header from "./components/Header";
 import ScoreCard from "./components/ScoreCard";
 import Winner from "./components/Winner";
 import Button from "./components/Button";
+import GameHistory from "./components/GameHistory";
 
-const App = ({ server, player1, player2, winner, handleIncrementP1, handleIncrementP2, handleReset }) => (
+const App = ({ server, player1, player2, winner, gameHistory, handleIncrementP1, handleIncrementP2, handleReset }) => (
     <React.Fragment>
         {/* header */}
         <Header title={ "PongPing" }/>
@@ -37,6 +38,11 @@ const App = ({ server, player1, player2, winner, handleIncrementP1, handleIncrem
           name="Reset"
           handleClick={ handleReset }
         />
+
+        <hr />
+        
+        {/* Score History */}
+        <GameHistory gameHistory={ gameHistory } />
     </React.Fragment>
 );
 
