@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import store from './data/store';
 
+import { Provider } from 'react-redux';
+
 // Rendering
 
 const render = () => {
@@ -14,18 +16,20 @@ const render = () => {
 
   ReactDOM.render(
     <React.StrictMode> 
-      <App 
-       server={ state.server }
-       player1={ state.player1 } 
-       player2={ state.player2 }
-       winner={ state.winner }
-       gameHistory={ state.gameHistory }
-       handleIncrementP1={ () => store.dispatch({ type: "INCREMENT_P1" }) }
-       handleIncrementP2={ () => store.dispatch({ type: "INCREMENT_P2" }) }
-       handleReset = { () => store.dispatch({ type: "RESET" }) }
-       handleLanguage={ () => store.dispatch({ type: "TOGGLE_LANGUAGE" }) }
-       language={ state.language }
-      />
+      <Provider store={ store }> {/* provider has access to both Redux and React side of application */}
+        <App 
+        server={ state.server }
+        player1={ state.player1 } 
+        player2={ state.player2 }
+        winner={ state.winner }
+        gameHistory={ state.gameHistory }
+        handleIncrementP1={ () => store.dispatch({ type: "INCREMENT_P1" }) }
+        handleIncrementP2={ () => store.dispatch({ type: "INCREMENT_P2" }) }
+        handleReset = { () => store.dispatch({ type: "RESET" }) }
+        handleLanguage={ () => store.dispatch({ type: "TOGGLE_LANGUAGE" }) }
+        language={ state.language }
+        />
+      </Provider>
     </React.StrictMode>,
     document.getElementById('root') 
   );
