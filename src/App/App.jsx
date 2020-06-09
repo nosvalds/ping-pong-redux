@@ -1,17 +1,17 @@
 import React from "react";
-import Header from "./components/Header";
-import ScoreCard1 from "./components/ScoreCard/ScoreCard1";
-import ScoreCard2 from "./components/ScoreCard/ScoreCard2";
-import Winner from './components/Winner'
-import GameHistory from "./components/GameHistory";
-import translations from './components/translations.json'
+import Header from "../components/Header";
+import ScoreCard1 from "../components/ScoreCard/ScoreCard1";
+import ScoreCard2 from "../components/ScoreCard/ScoreCard2";
+import Winner from '../components/Winner'
+import GameHistory from "../components/GameHistory";
+import translations from '../components/translations.json'
 
 const App = ({ 
   handleIncrementP1, 
   handleIncrementP2, 
   handleReset, 
-  language, 
-  handleLanguage 
+  handleLanguage,
+  language 
 }) => (
     <React.Fragment>
         {/* header */}
@@ -48,10 +48,9 @@ const App = ({
             className="btn btn-secondary ml-4"
             onClick={ handleLanguage }
           >
-            {language === "English" ? "Esperanto" : "English" }
+            { language === "English" ? "Esperanto" : "English" }
           </button>
         </div>
-
 
         <hr />
         

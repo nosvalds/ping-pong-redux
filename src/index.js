@@ -8,10 +8,8 @@ import { Provider } from 'react-redux';
 
 // Rendering
 
-const state = store.getState();
-
-  // Strict mode gives you extra validation and warnings when you're building things. Newer is the latest 3mo
-  // gets the root element from index.html
+// Strict mode gives you extra validation and warnings when you're building things. Newer is the latest 3mo
+// gets the root element from index.html
 
 ReactDOM.render(
   <React.StrictMode> 
@@ -21,7 +19,6 @@ ReactDOM.render(
         handleIncrementP2={ () => store.dispatch({ type: "INCREMENT_P2" }) }
         handleReset = { () => store.dispatch({ type: "RESET" }) }
         handleLanguage={ () => store.dispatch({ type: "TOGGLE_LANGUAGE" }) }
-        language={ state.language }
       />
     </Provider>
   </React.StrictMode>,
