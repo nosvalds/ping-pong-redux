@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "../components/Header";
-import ScoreCard1 from "../components/ScoreCard/ScoreCard1";
-import ScoreCard2 from "../components/ScoreCard/ScoreCard2";
-import Winner from '../components/Winner'
-import GameHistory from "../components/GameHistory";
-import translations from '../components/translations.json'
+import Header from "../Header";
+import ScoreCard1 from "../ScoreCard/ScoreCard1";
+import ScoreCard2 from "../ScoreCard/ScoreCard2";
+import Winner from '../Winner'
+import GameHistory from "../GameHistory";
+import translations from '../translations.json'
 
 const App = ({ 
   handleIncrementP1, 

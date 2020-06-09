@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom'; // renders React into the browser, could replace with ReactNative for an iOS app for example
 import './index.css';
-import App from './App';
+import App from './components/App';
 import store from './data/store';
 
 import { Provider } from 'react-redux';
