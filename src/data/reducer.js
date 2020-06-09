@@ -21,35 +21,31 @@ const checkWinner = state => {
     return {
       ...state, 
       winner: 1,
-      gameHistory: [
-        ...state.gameHistory,
-        {
-          player_1: {
-            score: state.player1,
-            won: true
-          },
-          player_2: {
-            score: state.player2,
-            won: false
-          }
-        }
-      ]
     }
   }
   if (state.player2 >= 21 && state.player2 - state.player1 >= 2) {
     return {
       ...state, 
       winner: 2,
+    }
+  }
+  return state;
+}
+
+const history = state => {
+  if (state.winner !== 0) {
+    return {
+      ...state,
       gameHistory: [
         ...state.gameHistory,
         {
           player_1: {
             score: state.player1,
-            won: false
+            won: state.player1 > state.player2
           },
           player_2: {
             score: state.player2,
-            won: true
+            won: state.player2 > state.player1
           }
         }
       ]
@@ -61,8 +57,8 @@ const checkWinner = state => {
 // reducer function
 const reducer = (state, action) => {
   switch (action.type) {
-    case "INCREMENT_P1": return checkWinner(server(incrementP1(state))); // increment player 1's score
-    case "INCREMENT_P2": return checkWinner(server(incrementP2(state))); // increment player 2's score
+    case "INCREMENT_P1": return history(checkWinner(server(incrementP1(state)))); // increment player 1's score
+    case "INCREMENT_P2": return history(checkWinner(server(incrementP2(state)))); // increment player 2's score
     case "RESET": return {
       ...initial,
       gameHistory: state.gameHistory
