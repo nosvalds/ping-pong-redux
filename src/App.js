@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./components/Header";
 import ScoreCard1 from "./components/ScoreCard/ScoreCard1";
 import ScoreCard2 from "./components/ScoreCard/ScoreCard2";
-import Winner from "./components/winner";
+import Winner from './components/Winner'
 import GameHistory from "./components/GameHistory";
 import translations from './components/translations.json'
 
