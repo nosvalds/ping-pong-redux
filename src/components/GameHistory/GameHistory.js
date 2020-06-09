@@ -1,5 +1,5 @@
 import React from 'react';
-import translations from './translations.json'
+import translations from '../translations.json'
 
 const GameHistory = ({ gameHistory, language }) => (
     <table className="table">

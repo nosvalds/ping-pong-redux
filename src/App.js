@@ -7,8 +7,6 @@ import GameHistory from "./components/GameHistory";
 import translations from './components/translations.json'
 
 const App = ({ 
-  winner, 
-  gameHistory, 
   handleIncrementP1, 
   handleIncrementP2, 
   handleReset, 
@@ -32,10 +30,7 @@ const App = ({
         </div>
 
         { /* winner message */}
-        <Winner 
-          winner={ winner } 
-          language={ language }
-        />
+        <Winner />
 
         <hr />
 
@@ -61,10 +56,7 @@ const App = ({
         <hr />
         
         {/* Score History */}
-        <GameHistory 
-          gameHistory={ gameHistory } 
-          language={ language }
-        />
+        <GameHistory />
     </React.Fragment>
 );
 
