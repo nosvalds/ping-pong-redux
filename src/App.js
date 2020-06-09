@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
-import ScoreCard from "./components/ScoreCard";
+import ScoreCard1 from "./components/ScoreCard/ScoreCard1";
+import ScoreCard2 from "./components/ScoreCard/ScoreCard2";
 import Winner from "./components/Winner";
 import GameHistory from "./components/GameHistory";
 import translations from './components/translations.json'
@@ -23,21 +24,13 @@ const App = ({
 
         {/* scores */}
         <div className="row mb-4">
-          <ScoreCard 
-            server={ server }
+          <ScoreCard1 
             player={ 1 }
-            score={ player1 }
             handleIncrement={ handleIncrementP1 }
-            gameOver={ winner !== 0 }
-            language={ language }
           />
-          <ScoreCard 
-            server={ server }
+          <ScoreCard2 
             player={ 2 }
-            score={ player2 }
             handleIncrement={ handleIncrementP2 }
-            gameOver={ winner !== 0 }
-            language={ language }
           />
         </div>
 
