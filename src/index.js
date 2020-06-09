@@ -17,9 +17,6 @@ ReactDOM.render(
   <React.StrictMode> 
     <Provider store={ store }> {/* provider has access to both Redux and React side of application, allows us to avoid prop drilling */}
       <App 
-        server={ state.server }
-        player1={ state.player1 } 
-        player2={ state.player2 }
         winner={ state.winner }
         gameHistory={ state.gameHistory }
         handleIncrementP1={ () => store.dispatch({ type: "INCREMENT_P1" }) }

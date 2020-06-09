@@ -7,9 +7,6 @@ import GameHistory from "./components/GameHistory";
 import translations from './components/translations.json'
 
 const App = ({ 
-  server, 
-  player1, 
-  player2,
   winner, 
   gameHistory, 
   handleIncrementP1, 
