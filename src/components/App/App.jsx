@@ -14,8 +14,55 @@ const App = ({
   showSettings 
 }) => (
     <React.Fragment>
+        { /* language button */}
+        <div 
+          className="btn-group btn-group-toggle" 
+          data-toggle="buttons"
+        >
+          <label 
+            className={`btn btn-secondary ${(language === "English") ? "active" : ""}`}
+          >
+            <input 
+              type="radio" 
+              name="options" 
+              id="english" 
+              onChange={ handleLanguage }
+            />
+              English
+          </label>
+          <label 
+            className={`btn btn-secondary ${(language === "Esperanto") ? "active" : ""}`}
+          >
+            <input 
+              type="radio" 
+              name="options" 
+              id="esperanto"
+              onChange={ handleLanguage }
+            />
+              Esperanto
+          </label>
+        </div>
+
+        {/* <div 
+          className="btn-group" 
+          role="group" 
+          aria-label="language selection">
+          <button 
+            className="btn btn-sm btn-secondary ml-4"
+            onClick={ handleLanguage }
+            >
+            { language === "English" ? "Esperanto" : "English" }
+          </button>
+          <button 
+            className="btn btn-small btn-secondary ml-4"
+            onClick={ handleLanguage }
+            >
+            { language === "English" ? "Esperanto" : "English" }
+          </button>
+        </div> */}
         {/* header */}
         <Header title={ "PongPing" } />
+
 
         { showSettings ? 
           <Settings />
@@ -43,14 +90,6 @@ const App = ({
                 onClick={ handleReset }
               >
                 { translations.reset[language] }
-              </button>
-
-              { /* language button */}
-              <button 
-                className="btn btn-secondary ml-4"
-                onClick={ handleLanguage }
-              >
-                { language === "English" ? "Esperanto" : "English" }
               </button>
             </div>
 

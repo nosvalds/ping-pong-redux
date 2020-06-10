@@ -26,5 +26,22 @@
    "score": {
        "English": "Score",
        "Esperanto": "Poentaro"
+   },
+   "name": {
+       "English": "Name",
+       "Esperanto": "Nomo"
+   },
+   "winning_score": {
+       "English": "Winning Score",
+       "Esperanto": "Venkanta Poentaro"
+   },
+   "alt_serve": {
+       "English": "Alternate Serve Every",
+       "Esperanto": "Alternu servi ĉiun"
+   },
+   "start_game": {
+       "English": "Start Game",
+       "Esperanto": "Komencu Ludon"
    }
+
 }

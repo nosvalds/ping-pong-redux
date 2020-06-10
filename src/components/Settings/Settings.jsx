@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
+import translations from '../../components/translations';
 
-const Settings = ({ handleSubmit, player1Name, player2Name, winningScore, serveInterval}) => {
+const Settings = ({ 
+    handleSubmit, 
+    player1Name, 
+    player2Name, 
+    winningScore, 
+    serveInterval, 
+    language 
+}) => {
     const [player1NameInput, setPlayer1NameInput] = useState(player1Name);
     const [player2NameInput, setPlayer2NameInput] = useState(player2Name);
     const [winningScoreInput, setWinningScoreInput] = useState(winningScore);
@@ -23,7 +31,9 @@ const Settings = ({ handleSubmit, player1Name, player2Name, winningScore, serveI
             className="mb-4 p-4 border rounded"
         >
             <div className="form-group">
-                <label htmlFor="player1Name" >Player 1 Name</label>
+                <label htmlFor="player1Name" >
+                    {`${translations.player[language]} 1 ${translations.name[language]}`}
+                </label>
                 <input
                     className="form-control"
                     type="text"
@@ -33,7 +43,9 @@ const Settings = ({ handleSubmit, player1Name, player2Name, winningScore, serveI
                 />
             </div>
             <div className="form-group">
-                <label htmlFor="player2Name" >Player 2 Name</label>
+                <label htmlFor="player2Name" >
+                    {`${translations.player[language]} 2 ${translations.name[language]}`}
+                </label>
                 <input
                     className="form-control"
                     type="text"
@@ -43,7 +55,9 @@ const Settings = ({ handleSubmit, player1Name, player2Name, winningScore, serveI
                 />
             </div>
             <div className="form-group">
-                <label htmlFor="winningScore" >Winning Score</label>
+                <label htmlFor="winningScore" >
+                    {`${translations.winning_score[language]}`}
+                </label>
                 <input
                     className="form-control"
                     type="number"
@@ -53,7 +67,9 @@ const Settings = ({ handleSubmit, player1Name, player2Name, winningScore, serveI
                 />
             </div>
             <div className="form-group">
-                <label htmlFor="alternateServe">Alternate Serve Every:</label>
+                <label htmlFor="alternateServe">
+                    {`${translations.alt_serve[language]}:`}
+                </label>
                 <select 
                     className="form-control" 
                     id="alternateServe"
@@ -71,7 +87,7 @@ const Settings = ({ handleSubmit, player1Name, player2Name, winningScore, serveI
                 type="submit"
                 className="btn btn-primary"
             >
-                Start Game
+                {`${translations.start_game[language]}`}
             </button>
 
         </form>
