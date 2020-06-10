@@ -14,7 +14,7 @@ const App = ({
   showSettings 
 }) => (
     <React.Fragment>
-        { /* language button */}
+        { /* language selection */}
         <div 
           className="btn-group btn-group-toggle" 
           data-toggle="buttons"
@@ -43,32 +43,16 @@ const App = ({
           </label>
         </div>
 
-        {/* <div 
-          className="btn-group" 
-          role="group" 
-          aria-label="language selection">
-          <button 
-            className="btn btn-sm btn-secondary ml-4"
-            onClick={ handleLanguage }
-            >
-            { language === "English" ? "Esperanto" : "English" }
-          </button>
-          <button 
-            className="btn btn-small btn-secondary ml-4"
-            onClick={ handleLanguage }
-            >
-            { language === "English" ? "Esperanto" : "English" }
-          </button>
-        </div> */}
         {/* header */}
         <Header title={ "PongPing" } />
 
-
+        {/* Settings or Gameplay */}
         { showSettings ? 
+          // render the settings component
           <Settings />
         : 
           <>
-            {/* scores */}
+            {/* gameplay scores section */}
             <div className="row mb-4">
               <ScoreCard1 
                 player={ 1 }
@@ -83,13 +67,13 @@ const App = ({
 
             <hr />
 
-            { /* reset button */}
+            { /* New Game button */}
             <div className="d-flex justify-content-between">
               <button 
                 className="btn btn-danger"
                 onClick={ handleReset }
               >
-                { translations.reset[language] }
+                { translations.new_game[language] }
               </button>
             </div>
 
