@@ -65,24 +65,32 @@ const startGame = (state, action) => {
   }
 }
 
+const reset = (state) => {
+  return {
+    ...initial,
+    gameHistory: state.gameHistory,
+    language: state.language,
+    serveInterval: state.serveInterval,
+    winningScore: state.winningScore,
+    player1Name: state.player1Name,
+    player2Name: state.player2Name 
+  }; // to reset return initial state, but preserve game history, lanuage, and settings
+}
+
+const toggleLanguage = state => {
+  return {
+    ...state,
+    language: state.language === "English" ? "Esperanto" : "English"
+  }
+}
+
 // reducer function
 const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT_P1": return history(checkWinner(server(incrementP1(state)))); // increment player 1's score
     case "INCREMENT_P2": return history(checkWinner(server(incrementP2(state)))); // increment player 2's score
-    case "RESET": return {
-      ...initial,
-      gameHistory: state.gameHistory,
-      language: state.language,
-      serveInterval: state.serveInterval,
-      winningScore: state.winningScore,
-      player1Name: state.player1Name,
-      player2Name: state.player2Name 
-    }; // to reset return initial state, but preserve game history and lanuage
-    case "TOGGLE_LANGUAGE": return {
-      ...state,
-      language: state.language === "English" ? "Esperanto" : "English"
-    }
+    case "RESET": return reset(state);
+    case "TOGGLE_LANGUAGE": return toggleLanguage(state);
     case "START_GAME": return startGame(state, action);
     default: return state;
   }
