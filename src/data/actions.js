@@ -21,3 +21,13 @@ export const toggleLanguage = () => {
         type: "TOGGLE_LANGUAGE"
     }
 }
+
+export const startGame = (data) => {
+    return {
+        type: "START_GAME",
+        player1Name: data.player1Name,
+        player2Name: data.player2Name,
+        winningScore: +data.winningScore,
+        serveInterval: +data.serveInterval
+    }
+}

@@ -8,11 +8,12 @@ import { incrementP1 } from '../../data/actions';
 // 3. Fat arrow single line
 
 // naming convention is mapStateToProps. ownProps is normal props being passed in to the component
-const mapStateToProps = ({ server, player1, language, winner }, /* ownProps */) => ({
+const mapStateToProps = ({ server, player1, language, winner, player1Name }, /* ownProps */) => ({
         server, // equivalent to server: server
         score: player1,
         language, // equivalent to language: language
         gameOver: winner !== 0,
+        playerName: player1Name
 });
 
 // second parameter is ownProps like mapStateToProps

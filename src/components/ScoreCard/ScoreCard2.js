@@ -3,12 +3,13 @@ import ScoreCard from './ScoreCard';
 import { incrementP2 } from '../../data/actions';
 
 
-const mapStateToProps = ({ server, player2, language, winner}) => {
+const mapStateToProps = ({ server, player2, language, winner, player2Name}) => {
     return {
         server,
         score: player2,
         language,
         gameOver: winner !== 0,
+        playerName: player2Name,
     };
 }
 

@@ -4,7 +4,7 @@ const incrementP1 = state => ({...state, player1: state.player1 + 1});
 const incrementP2 = state => ({...state, player2: state.player2 + 1});
 
 const server = state => {
-  let serves = (state.player1 >= 20 && state.player2 >= 20) ? 2 : 5 // The server should start to alternate every two serves if both scores get to 20
+  let serves = (state.player1 >= state.winningScore - 1 && state.player2 >= state.winningScore - 1) ? 2 : state.serveInterval // The server should start to alternate every two serves if both scores get to 20
   if ((state.player1 + state.player2) % serves === 0) {
     return {
       ...state,
@@ -17,13 +17,13 @@ const server = state => {
 // function to check if there has been a winner after each point
 // add logic to ensure player is winning by at least 2 points before declaring a winner
 const checkWinner = state => {
-  if (state.player1 >= 21 && state.player1 - state.player2 >= 2) {
+  if (state.player1 >= state.winningScore && state.player1 - state.player2 >= 2) {
     return {
       ...state, 
       winner: 1,
     }
   }
-  if (state.player2 >= 21 && state.player2 - state.player1 >= 2) {
+  if (state.player2 >= state.winningScore && state.player2 - state.player1 >= 2) {
     return {
       ...state, 
       winner: 2,
@@ -54,6 +54,17 @@ const history = state => {
   return state;
 }
 
+const startGame = (state, action) => {
+  return {
+    ...state,
+    showSettings: false,
+    player1Name: action.player1Name,
+    player2Name: action.player2Name,
+    winningScore: action.winningScore,
+    serveInterval: action.serveInterval,
+  }
+}
+
 // reducer function
 const reducer = (state, action) => {
   switch (action.type) {
@@ -61,12 +72,18 @@ const reducer = (state, action) => {
     case "INCREMENT_P2": return history(checkWinner(server(incrementP2(state)))); // increment player 2's score
     case "RESET": return {
       ...initial,
-      gameHistory: state.gameHistory
-    }; // to reset return initial state, but preserve game history
+      gameHistory: state.gameHistory,
+      language: state.language,
+      serveInterval: state.serveInterval,
+      winningScore: state.winningScore,
+      player1Name: state.player1Name,
+      player2Name: state.player2Name 
+    }; // to reset return initial state, but preserve game history and lanuage
     case "TOGGLE_LANGUAGE": return {
       ...state,
       language: state.language === "English" ? "Esperanto" : "English"
     }
+    case "START_GAME": return startGame(state, action);
     default: return state;
   }
 }
