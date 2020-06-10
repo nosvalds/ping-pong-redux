@@ -8,7 +8,7 @@ import translations from '../translations.json'
 import Settings from "../Settings";
 
 const App = ({ 
-  handleReset, 
+  handleNewGame, 
   handleLanguage,
   language,
   showSettings 
@@ -71,7 +71,7 @@ const App = ({
             <div className="d-flex justify-content-between">
               <button 
                 className="btn btn-danger"
-                onClick={ handleReset }
+                onClick={ handleNewGame }
               >
                 { translations.new_game[language] }
               </button>

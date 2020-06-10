@@ -67,7 +67,7 @@ const startGame = (state, action) => {
   }
 }
 
-const reset = (state) => {
+const newGame = (state) => {
   return {
     ...initial,
     gameHistory: state.gameHistory,
@@ -76,7 +76,7 @@ const reset = (state) => {
     winningScore: state.winningScore,
     player1Name: state.player1Name,
     player2Name: state.player2Name 
-  }; // to reset return initial state, but preserve game history, lanuage, and settings
+  }; // to newGame return initial state, but preserve game history, lanuage, and settings
 }
 
 const toggleLanguage = state => {
@@ -91,7 +91,7 @@ const reducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT_P1": return history(checkWinner(server(incrementP1(state)))); // increment player 1's score
     case "INCREMENT_P2": return history(checkWinner(server(incrementP2(state)))); // increment player 2's score
-    case "RESET": return reset(state);
+    case "NEW_GAME": return newGame(state);
     case "TOGGLE_LANGUAGE": return toggleLanguage(state);
     case "START_GAME": return startGame(state, action);
     default: return state;

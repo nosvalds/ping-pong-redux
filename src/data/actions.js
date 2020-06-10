@@ -10,9 +10,9 @@ export const incrementP2 = () => {
     }
 }
 
-export const reset = () => {
+export const newGame = () => {
     return {
-        type: "RESET"
+        type: "NEW_GAME"
     }
 }
 

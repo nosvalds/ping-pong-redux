@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import App from './App';
-import { reset, toggleLanguage } from '../../data/actions';
+import { newGame, toggleLanguage } from '../../data/actions';
 
 const mapStateToProps = ({ language, showSettings }) => ({ language, showSettings })
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleReset: () => dispatch(reset()),
+        handleNewGame: () => dispatch(newGame()),
         handleLanguage: () => dispatch(toggleLanguage())
     }
 }
