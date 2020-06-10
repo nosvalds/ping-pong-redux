@@ -40,10 +40,12 @@ const history = state => {
         ...state.gameHistory,
         {
           player_1: {
+            name: state.player1Name,
             score: state.player1,
             won: state.player1 > state.player2
           },
           player_2: {
+            name: state.player2Name,
             score: state.player2,
             won: state.player2 > state.player1
           }

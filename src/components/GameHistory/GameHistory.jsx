@@ -1,7 +1,10 @@
 import React from 'react';
 import translations from '../translations.json'
 
-const GameHistory = ({ gameHistory, language }) => (
+const GameHistory = ({ 
+    gameHistory, 
+    language, 
+ }) => (
     <table className="table">
         <thead className="thead-light">
             <tr>
@@ -18,7 +21,9 @@ const GameHistory = ({ gameHistory, language }) => (
                 <React.Fragment key= { i }>
                     <tr>
                         <th scope="row" rowSpan="2">{ i + 1 }</th>
-                        <td>{translations.player[language] + " 1"}</td>
+                        <td>
+                            {`${translations.player[language]} 1: ${game.player_1.name}`}
+                        </td>
                         { game.player_1.won ?
                             <td className="table-success">
                                 { translations.wins[language] }
@@ -30,7 +35,9 @@ const GameHistory = ({ gameHistory, language }) => (
                         <td>{ game.player_1.score }</td>
                     </tr>
                     <tr key={ i }>
-                        <td>{translations.player[language] + " 2"}</td>
+                        <td>
+                            {`${translations.player[language]} 2: ${game.player_2.name}`}
+                        </td>
                         { game.player_2.won ?
                             <td className="table-success">
                                 { translations.wins[language] }
