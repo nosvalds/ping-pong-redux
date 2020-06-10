@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 
-const Settings = ({ handleSubmit }) => {
-    const [player1Name, setPlayer1Name] = useState("");
-    const [player2Name, setPlayer2Name] = useState("");
-    const [winningScore, setWinningScore] = useState(21);
-    const [serveInterval, setServeInterval] = useState(5);
+const Settings = ({ handleSubmit, player1Name, player2Name, winningScore, serveInterval}) => {
+    const [player1NameInput, setPlayer1NameInput] = useState(player1Name);
+    const [player2NameInput, setPlayer2NameInput] = useState(player2Name);
+    const [winningScoreInput, setWinningScoreInput] = useState(winningScore);
+    const [serveIntervalInput, setServeIntervalInput] = useState(serveInterval);
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
         handleSubmit(
             {
-                player1Name,
-                player2Name,
-                winningScore,
-                serveInterval
+                player1Name: player1NameInput,
+                player2Name: player2NameInput,
+                winningScore: winningScoreInput,
+                serveInterval: serveIntervalInput
             }
         )
     }
@@ -28,8 +28,8 @@ const Settings = ({ handleSubmit }) => {
                     className="form-control"
                     type="text"
                     id="player1Name"
-                    value={ player1Name }
-                    onChange={ (e) => setPlayer1Name(e.currentTarget.value) }
+                    value={ player1NameInput }
+                    onChange={ (e) => setPlayer1NameInput(e.currentTarget.value) }
                 />
             </div>
             <div className="form-group">
@@ -38,8 +38,8 @@ const Settings = ({ handleSubmit }) => {
                     className="form-control"
                     type="text"
                     id="player2Name"
-                    value={ player2Name }
-                    onChange={ (e) => setPlayer2Name(e.currentTarget.value) }
+                    value={ player2NameInput }
+                    onChange={ (e) => setPlayer2NameInput(e.currentTarget.value) }
                 />
             </div>
             <div className="form-group">
@@ -48,8 +48,8 @@ const Settings = ({ handleSubmit }) => {
                     className="form-control"
                     type="number"
                     id="winningScore"
-                    value={ winningScore }
-                    onChange={ (e) => setWinningScore(e.currentTarget.value) }
+                    value={ winningScoreInput }
+                    onChange={ (e) => setWinningScoreInput(e.currentTarget.value) }
                 />
             </div>
             <div className="form-group">
@@ -57,8 +57,8 @@ const Settings = ({ handleSubmit }) => {
                 <select 
                     className="form-control" 
                     id="alternateServe"
-                    value={ serveInterval }
-                    onChange={ (e) => setServeInterval(e.currentTarget.value) }
+                    value={ serveIntervalInput }
+                    onChange={ (e) => setServeIntervalInput(e.currentTarget.value) }
                 >
                     <option>1</option>
                     <option>2</option>

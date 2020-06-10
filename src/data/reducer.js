@@ -73,7 +73,11 @@ const reducer = (state, action) => {
     case "RESET": return {
       ...initial,
       gameHistory: state.gameHistory,
-      language: state.language 
+      language: state.language,
+      serveInterval: state.serveInterval,
+      winningScore: state.winningScore,
+      player1Name: state.player1Name,
+      player2Name: state.player2Name 
     }; // to reset return initial state, but preserve game history and lanuage
     case "TOGGLE_LANGUAGE": return {
       ...state,
