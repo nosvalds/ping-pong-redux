@@ -16,11 +16,11 @@ const App = ({
     <React.Fragment>
         { /* language selection */}
         <div 
-          className="btn-group btn-group-toggle" 
+          className="btn-group btn-group-toggle pt-1" 
           data-toggle="buttons"
         >
           <label 
-            className={`btn btn-secondary ${(language === "English") ? "active" : ""}`}
+            className={`btn btn-sm btn-info ${(language === "English") ? "active" : ""}`}
           >
             <input 
               type="radio" 
@@ -31,7 +31,7 @@ const App = ({
               English
           </label>
           <label 
-            className={`btn btn-secondary ${(language === "Esperanto") ? "active" : ""}`}
+            className={`btn btn-sm btn-info ${(language === "Esperanto") ? "active" : ""}`}
           >
             <input 
               type="radio" 
