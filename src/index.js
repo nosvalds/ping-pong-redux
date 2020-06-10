@@ -14,12 +14,7 @@ import { Provider } from 'react-redux';
 ReactDOM.render(
   <React.StrictMode> 
     <Provider store={ store }> {/* provider has access to both Redux and React side of application, allows us to avoid prop drilling */}
-      <App 
-        handleIncrementP1={ () => store.dispatch({ type: "INCREMENT_P1" }) }
-        handleIncrementP2={ () => store.dispatch({ type: "INCREMENT_P2" }) }
-        handleReset = { () => store.dispatch({ type: "RESET" }) }
-        handleLanguage={ () => store.dispatch({ type: "TOGGLE_LANGUAGE" }) }
-      />
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById('root') 

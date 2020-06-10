@@ -7,8 +7,6 @@ import GameHistory from "../GameHistory";
 import translations from '../translations.json'
 
 const App = ({ 
-  handleIncrementP1, 
-  handleIncrementP2, 
   handleReset, 
   handleLanguage,
   language 
@@ -21,11 +19,9 @@ const App = ({
         <div className="row mb-4">
           <ScoreCard1 
             player={ 1 }
-            handleIncrement={ handleIncrementP1 }
           />
           <ScoreCard2 
             player={ 2 }
-            handleIncrement={ handleIncrementP2 }
           />
         </div>
 

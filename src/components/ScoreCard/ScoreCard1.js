@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import ScoreCard from './ScoreCard';
+import { incrementP1 } from '../../data/actions';
 
 // Tricks
 // 1. Descruturing
@@ -14,5 +15,10 @@ const mapStateToProps = ({ server, player1, language, winner }, /* ownProps */) 
         gameOver: winner !== 0,
 });
 
+// second parameter is ownProps like mapStateToProps
+const mapDispatchToProps = (dispatch) => ({
+        handleIncrement: () => dispatch(incrementP1())
+})
+
 // connect calls mapStateToProps when changes occur in our component
-export default connect(mapStateToProps)(ScoreCard)
+export default connect(mapStateToProps, mapDispatchToProps)(ScoreCard)
