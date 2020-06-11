@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import GameHistory from './GameHistory';
-import { deleteGame } from '../../data/actions/api'
+import { deleteGame, getResumeGame } from '../../data/actions/api'
 
 const mapStateToProps = ({
     gameHistory, 
@@ -12,7 +12,8 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleDelete: (id) => dispatch(deleteGame(id))
+        handleDelete: (id) => dispatch(deleteGame(id)),
+        handleContinue: (id) => dispatch(getResumeGame(id))
     }
 }
 

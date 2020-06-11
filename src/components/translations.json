@@ -46,6 +46,14 @@
    "not_complete": {
        "English": "Not Complete",
        "Esperanto": "Ne Kompleta"
+   },
+   "actions": {
+       "English": "Actions",
+       "Esperanto": "Agoj"
+   },
+   "continue": {
+       "English": "Continue",
+       "Esperanto": "Daŭrigu"
    }
 
 }

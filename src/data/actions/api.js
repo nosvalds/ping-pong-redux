@@ -1,5 +1,11 @@
 import axios from '../../axios/axios';
-import { startGame, updateScore, saveHistory, removeGame } from './state';
+import { 
+    startGame, 
+    updateScore, 
+    saveHistory, 
+    removeGame,
+    resumeGame 
+} from './state';
 
 export const postStartGame = ({ 
         player1Name, 
@@ -44,4 +50,16 @@ export const deleteGame = (id) => {
             dispatch(removeGame(id)) 
         })
     }
+}
+
+export const getResumeGame = (id) => {
+return (dispatch) => {
+    axios.get(`${id}`).then(({ data }) => {
+        if (!data.data.complete) {
+            dispatch(resumeGame(data.data));
+        } else {
+            getGameHistory();
+        }
+    })
+};
 }

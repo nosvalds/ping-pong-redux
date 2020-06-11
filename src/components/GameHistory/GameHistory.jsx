@@ -5,6 +5,7 @@ const GameHistory = ({
     gameHistory, 
     language, 
     handleDelete,
+    handleContinue,
  }) => (
     <table className="table">
         <thead className="thead-light">
@@ -15,13 +16,14 @@ const GameHistory = ({
                     {translations.wins[language] + "/" + translations.loss[language]}
                 </th>
                 <th scope="col">{ translations.score[language] }</th>
+                <th scope="col">{ translations.actions[language] }</th>
             </tr>
         </thead>
         <tbody>
             { gameHistory.map((game, i) => (
                 <React.Fragment key= { i }>
                     <tr>
-                        <th scope="row">{ game.id }</th>
+                        <th scope="row" rowSpan="2">{ game.id }</th>
                         <td>
                             {`${translations.player[language]} 1: ${game.player_1.name}`}
                         </td>
@@ -41,16 +43,19 @@ const GameHistory = ({
                             </th>
                         }
                         <td>{ game.player_1.score }</td>
+                        <td>
+                            { !game.complete ? 
+                                <button
+                                    className="btn btn-outline-primary btn-sm"
+                                    onClick={ () => handleContinue(game.id) } // load the game where it left off
+                                >
+                                    {translations.continue[language]}
+                                </button> :
+                                null
+                            }
+                        </td>
                     </tr>
                     <tr>
-                        <th scope="row">
-                            <button
-                                className="btn btn-outline-danger btn-sm"
-                                onClick={ () => handleDelete(game.id) }
-                            >
-                                &times;
-                            </button>
-                        </th>
                         <td>
                             {`${translations.player[language]} 2: ${game.player_2.name}`}
                         </td>
@@ -60,10 +65,17 @@ const GameHistory = ({
                             </td> : 
                             <td className="table-danger">
                                 { translations.loss[language] }
-                            </td>) :
-                            null
+                            </td>) : null
                         }
                         <td>{ game.player_2.score }</td>
+                        <td>
+                            <button
+                                className="btn btn-outline-danger btn-sm"
+                                onClick={ () => handleDelete(game.id) }
+                            >
+                                &times;
+                            </button>
+                        </td>
                     </tr>
                 </React.Fragment>
             ))}
