@@ -6,6 +6,7 @@ import Winner from '../Winner'
 import GameHistory from "../GameHistory";
 import translations from '../translations.json'
 import Settings from "../Settings";
+import Loading from "../Loading";
 
 const App = ({ 
   handleNewGame, 
@@ -81,7 +82,9 @@ const App = ({
           </>
         }
         {/* Score History */}
-        <GameHistory />
+        <Loading>
+          <GameHistory />
+        </Loading>
     </React.Fragment>
 );
 

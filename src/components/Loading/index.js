@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import Loading from './Loading';
 import { postNewGame } from '../../data/actions/api';
 
-// const mapStateToProps = ({ loaded }) => {
-//     return {
-//         loaded: loaded,
-//     };
-// }
+const mapStateToProps = ({ historyLoaded }) => {
+    return {
+        historyLoaded,
+    };
+}
 
 // const mapDispatchToProps = (dispatch) => {
 //     return {
@@ -14,4 +14,4 @@ import { postNewGame } from '../../data/actions/api';
 //     };
 // }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Loading);
+export default connect(mapStateToProps)(Loading);
