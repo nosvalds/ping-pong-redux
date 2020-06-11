@@ -42,6 +42,10 @@
    "start_game": {
        "English": "Start Game",
        "Esperanto": "Komencu Ludon"
+   },
+   "not_complete": {
+       "English": "Not Complete",
+       "Esperanto": "Ne Kompleta"
    }
 
 }

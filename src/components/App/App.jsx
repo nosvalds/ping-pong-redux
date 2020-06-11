@@ -1,88 +1,32 @@
 import React from "react";
 import Header from "../Header";
-import ScoreCard1 from "../ScoreCard/ScoreCard1";
-import ScoreCard2 from "../ScoreCard/ScoreCard2";
-import Winner from '../Winner'
 import GameHistory from "../GameHistory";
-import translations from '../translations.json'
 import Settings from "../Settings";
+import Loading from "../Loading";
+import LanguageSelection from "../LanguageSelection";
+import GamePlay from "../GamePlay";
 
 const App = ({ 
-  handleNewGame, 
-  handleLanguage,
-  language,
   showSettings 
 }) => (
-    <React.Fragment>
+    <>
         { /* language selection */}
-        <div 
-          className="btn-group btn-group-toggle pt-1" 
-          data-toggle="buttons"
-        >
-          <label 
-            className={`btn btn-sm btn-info ${(language === "English") ? "active" : ""}`}
-          >
-            <input 
-              type="radio" 
-              name="options" 
-              id="english" 
-              onChange={ handleLanguage }
-            />
-              English
-          </label>
-          <label 
-            className={`btn btn-sm btn-info ${(language === "Esperanto") ? "active" : ""}`}
-          >
-            <input 
-              type="radio" 
-              name="options" 
-              id="esperanto"
-              onChange={ handleLanguage }
-            />
-              Esperanto
-          </label>
-        </div>
+        <LanguageSelection />
 
         {/* header */}
         <Header title={ "Pong Ping" } />
 
         {/* Settings or Gameplay */}
         { showSettings ? 
-          // render the settings component
           <Settings />
         : 
-          <>
-            {/* gameplay scores section */}
-            <div className="row mb-4">
-              <ScoreCard1 
-                player={ 1 }
-              />
-              <ScoreCard2 
-                player={ 2 }
-              />
-            </div>
-        
-            { /* winner message */}
-            <Winner />
-
-            <hr />
-
-            { /* New Game button */}
-            <div className="d-flex justify-content-between">
-              <button 
-                className="btn btn-danger"
-                onClick={ handleNewGame }
-              >
-                { translations.new_game[language] }
-              </button>
-            </div>
-
-            <hr />
-          </>
+          <GamePlay />
         }
-        {/* Score History */}
-        <GameHistory />
-    </React.Fragment>
+        {/* Game History, wrap in loading so we show loading bar until history is loaded from the API */}
+        <Loading>
+          <GameHistory />
+        </Loading>
+    </>
 );
 
 export default App;

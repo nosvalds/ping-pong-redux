@@ -10,6 +10,7 @@ const initial = {
     server: 1,
     winner: 0,
     gameHistory: [],
+    historyLoaded: false, // for API request
     language: "English"
   };
 

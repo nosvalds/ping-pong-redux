@@ -13,32 +13,8 @@ const updateScore = (
     player1,
     player2,
     server,
-    winner
+    winner,
   }
-}
-
-const history = state => {
-  if (state.winner !== 0) {
-    return {
-      ...state,
-      gameHistory: [
-        ...state.gameHistory,
-        {
-          player_1: {
-            name: state.player1Name,
-            score: state.player1,
-            won: state.player1 > state.player2
-          },
-          player_2: {
-            name: state.player2Name,
-            score: state.player2,
-            won: state.player2 > state.player1
-          }
-        }
-      ]
-    }
-  }
-  return state;
 }
 
 const startGame = (state, action) => {
@@ -56,7 +32,6 @@ const startGame = (state, action) => {
 const newGame = (state) => {
   return {
     ...initial,
-    gameHistory: state.gameHistory,
     language: state.language,
     serveInterval: state.serveInterval,
     winningScore: state.winningScore,
@@ -72,13 +47,22 @@ const toggleLanguage = state => {
   }
 }
 
+const saveHistory = (state, action) => {
+  return {
+    ...state,
+    gameHistory: action.gameHistory,
+    historyLoaded: true,
+  }
+}
+
 // reducer function
 const reducer = (state, action) => {
   switch (action.type) {
-    case "UPDATE_SCORE": return history(updateScore(state, action)); // increment player 1's score
-    case "NEW_GAME": return newGame(state);
-    case "TOGGLE_LANGUAGE": return toggleLanguage(state);
-    case "START_GAME": return startGame(state, action);
+    case "UPDATE_SCORE": return updateScore(state, action); // increment player score
+    case "NEW_GAME": return newGame(state); // after a game has been won, start a new game
+    case "TOGGLE_LANGUAGE": return toggleLanguage(state); // switch between languages
+    case "START_GAME": return startGame(state, action); // start a new game from the settings screen
+    case "SAVE_HISTORY": return saveHistory(state, action); // save history from API to state
     default: return state;
   }
 }
