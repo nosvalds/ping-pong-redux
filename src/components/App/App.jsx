@@ -7,42 +7,16 @@ import GameHistory from "../GameHistory";
 import translations from '../translations.json'
 import Settings from "../Settings";
 import Loading from "../Loading";
+import LanguageSelection from "../LanguageSelection";
 
 const App = ({ 
   handleNewGame, 
-  handleLanguage,
   language,
   showSettings 
 }) => (
     <React.Fragment>
         { /* language selection */}
-        <div 
-          className="btn-group btn-group-toggle pt-1" 
-          data-toggle="buttons"
-        >
-          <label 
-            className={`btn btn-sm btn-info ${(language === "English") ? "active" : ""}`}
-          >
-            <input 
-              type="radio" 
-              name="options" 
-              id="english" 
-              onChange={ handleLanguage }
-            />
-              English
-          </label>
-          <label 
-            className={`btn btn-sm btn-info ${(language === "Esperanto") ? "active" : ""}`}
-          >
-            <input 
-              type="radio" 
-              name="options" 
-              id="esperanto"
-              onChange={ handleLanguage }
-            />
-              Esperanto
-          </label>
-        </div>
+        <LanguageSelection />
 
         {/* header */}
         <Header title={ "Pong Ping" } />
