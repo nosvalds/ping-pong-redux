@@ -23,7 +23,7 @@ const ScoreCard = ({
             <div className="card-footer">
                 <button 
                     className="form-control btn btn-success"
-                    onClick={ handleIncrement }
+                    onClick={ () => handleIncrement(player) }
                     disabled={ gameOver }
                 >
                     +

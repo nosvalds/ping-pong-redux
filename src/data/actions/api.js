@@ -1,5 +1,5 @@
 import axios from '../../axios/axios';
-import { startGame } from './state';
+import { startGame, updateScore } from './state';
 
 export const postStartGame = ({ 
         player1Name, 
@@ -18,3 +18,16 @@ export const postStartGame = ({
         })
     };
 }
+
+export const patchScore = player => (dispatch, getState) => {
+    // use getState function to get the state object
+    // then read the currentGameID property
+    const id = getState().gameId;
+
+    axios.patch(`${id}/score`,{
+        player: player,
+    }).then(({ data }) => {
+        // dispatch state action
+        dispatch(updateScore(data.data));
+    });
+};

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ScoreCard from './ScoreCard';
-import { incrementP1 } from '../../data/actions/state';
+import { patchScore } from '../../data/actions/api';
 
 // Tricks
 // 1. Descruturing
@@ -8,7 +8,13 @@ import { incrementP1 } from '../../data/actions/state';
 // 3. Fat arrow single line
 
 // naming convention is mapStateToProps. ownProps is normal props being passed in to the component
-const mapStateToProps = ({ server, player1, language, winner, player1Name }, /* ownProps */) => ({
+const mapStateToProps = ({ 
+        server, 
+        player1, 
+        language, 
+        winner, 
+        player1Name
+}) => ({
         server, // equivalent to server: server
         score: player1,
         language, // equivalent to language: language
@@ -18,7 +24,7 @@ const mapStateToProps = ({ server, player1, language, winner, player1Name }, /* 
 
 // second parameter is ownProps like mapStateToProps
 const mapDispatchToProps = (dispatch) => ({
-        handleIncrement: () => dispatch(incrementP1())
+        handleIncrement: (player) => dispatch(patchScore(player))
 })
 
 // connect calls mapStateToProps when changes occur in our component
