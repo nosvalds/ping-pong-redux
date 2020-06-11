@@ -14,18 +14,6 @@ export const updateScore = (data) => {
     }
 }
 
-export const incrementP1 = () => {
-    return {
-        type: "INCREMENT_P1"
-    }
-}
-
-export const incrementP2 = () => {
-    return {
-        type: "INCREMENT_P2"
-    }
-}
-
 export const newGame = () => {
     return {
         type: "NEW_GAME"
@@ -56,3 +44,9 @@ export const saveHistory = (data) => {
     }
 }
 
+export const removeGame = (id) => {
+    return {
+        type: "REMOVE_GAME",
+        id,
+    }
+}

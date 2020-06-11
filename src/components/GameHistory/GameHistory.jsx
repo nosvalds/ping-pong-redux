@@ -4,6 +4,7 @@ import translations from '../translations.json'
 const GameHistory = ({ 
     gameHistory, 
     language, 
+    handleDelete,
  }) => (
     <table className="table">
         <thead className="thead-light">
@@ -20,7 +21,7 @@ const GameHistory = ({
             { gameHistory.map((game, i) => (
                 <React.Fragment key= { i }>
                     <tr>
-                        <th scope="row" rowSpan="2">{ game.id }</th>
+                        <th scope="row">{ game.id }</th>
                         <td>
                             {`${translations.player[language]} 1: ${game.player_1.name}`}
                         </td>
@@ -42,6 +43,14 @@ const GameHistory = ({
                         <td>{ game.player_1.score }</td>
                     </tr>
                     <tr>
+                        <th scope="row">
+                            <button
+                                className="btn btn-outline-danger btn-sm"
+                                onClick={ () => handleDelete(game.id) }
+                            >
+                                &times;
+                            </button>
+                        </th>
                         <td>
                             {`${translations.player[language]} 2: ${game.player_2.name}`}
                         </td>

@@ -55,6 +55,13 @@ const saveHistory = (state, action) => {
   }
 }
 
+const removeGame = (state, action) => {
+  return {
+    ...state,
+    gameHistory: state.gameHistory.filter((game) => game.id !== action.id) // filter the game we want to remove from state
+  }
+}
+
 // reducer function
 const reducer = (state, action) => {
   switch (action.type) {
@@ -63,6 +70,7 @@ const reducer = (state, action) => {
     case "TOGGLE_LANGUAGE": return toggleLanguage(state); // switch between languages
     case "START_GAME": return startGame(state, action); // start a new game from the settings screen
     case "SAVE_HISTORY": return saveHistory(state, action); // save history from API to state
+    case "REMOVE_GAME": return removeGame(state, action);
     default: return state;
   }
 }
