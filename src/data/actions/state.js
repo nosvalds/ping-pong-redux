@@ -52,12 +52,6 @@ export const removeGame = (id) => {
 }
 
 export const resumeGame = (data) => {
-    let server = "";
-    if (data.player_1.serving) {
-        server = 1;
-    } else if (data.player_2.serving) {
-        server = 2;
-    }
     return {
         type: "RESUME_GAME",
         gameId: data.id,
@@ -67,6 +61,6 @@ export const resumeGame = (data) => {
         player2Name: data.player_2.name,
         winningScore: +data.winning_score,
         serveInterval: +data.change_serve,
-        server: server
+        server: data.player_1.serving ? 1 : 2,
     }
 }

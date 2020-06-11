@@ -53,13 +53,13 @@ export const deleteGame = (id) => {
 }
 
 export const getResumeGame = (id) => {
-return (dispatch) => {
-    axios.get(`${id}`).then(({ data }) => {
-        if (!data.data.complete) {
-            dispatch(resumeGame(data.data));
-        } else {
-            getGameHistory();
-        }
-    })
-};
+    return (dispatch) => {
+        axios.get(`${id}`).then(({ data }) => {
+            if (!data.data.complete) {
+                dispatch(resumeGame(data.data));
+            } else {
+                getGameHistory();
+            }
+        })
+    };
 }
