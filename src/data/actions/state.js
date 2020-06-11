@@ -49,3 +49,10 @@ export const startGame = (data) => {
     }
 }
 
+export const saveHistory = (data) => {
+    return {
+        type: "SAVE_HISTORY",
+        gameHistory: data,
+    }
+}
+

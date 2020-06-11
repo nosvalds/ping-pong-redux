@@ -72,6 +72,14 @@ const toggleLanguage = state => {
   }
 }
 
+const saveHistory = (state, action) => {
+  return {
+    ...state,
+    gameHistory: action.gameHistory,
+    historyLoaded: true,
+  }
+}
+
 // reducer function
 const reducer = (state, action) => {
   switch (action.type) {
@@ -79,6 +87,7 @@ const reducer = (state, action) => {
     case "NEW_GAME": return newGame(state);
     case "TOGGLE_LANGUAGE": return toggleLanguage(state);
     case "START_GAME": return startGame(state, action);
+    case "SAVE_HISTORY": return saveHistory(state, action);
     default: return state;
   }
 }

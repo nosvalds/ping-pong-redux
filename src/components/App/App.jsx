@@ -81,7 +81,7 @@ const App = ({
             <hr />
           </>
         }
-        {/* Score History */}
+        {/* Game History */}
         <Loading>
           <GameHistory />
         </Loading>
