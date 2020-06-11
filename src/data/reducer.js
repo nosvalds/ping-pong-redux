@@ -60,6 +60,7 @@ const startGame = (state, action) => {
   return {
     ...state,
     showSettings: false,
+    gameId: action.gameId,
     player1Name: action.player1Name,
     player2Name: action.player2Name,
     winningScore: action.winningScore,

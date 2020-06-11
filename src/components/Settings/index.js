@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Settings from './Settings';
-import { startGame } from '../../data/actions';
+import { postStartGame } from '../../data/actions/api';
 
 const mapStateToProps = ({ 
     language, 
@@ -17,7 +17,7 @@ const mapStateToProps = ({
 })
 
 const mapDispatchToProps = (dispatch) =>({
-    handleSubmit: (data) => dispatch(startGame(data))
+    handleSubmit: (data) => dispatch(postStartGame(data)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Settings);

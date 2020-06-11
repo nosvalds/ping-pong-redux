@@ -25,9 +25,11 @@ export const toggleLanguage = () => {
 export const startGame = (data) => {
     return {
         type: "START_GAME",
-        player1Name: data.player1Name,
-        player2Name: data.player2Name,
-        winningScore: +data.winningScore,
-        serveInterval: +data.serveInterval
+        gameId: data.id,
+        player1Name: data.player_1.name,
+        player2Name: data.player_2.name,
+        winningScore: +data.winning_score,
+        serveInterval: +data.change_serve
     }
 }
+

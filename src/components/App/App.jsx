@@ -44,7 +44,7 @@ const App = ({
         </div>
 
         {/* header */}
-        <Header title={ "PongPing" } />
+        <Header title={ "Pong Ping" } />
 
         {/* Settings or Gameplay */}
         { showSettings ? 

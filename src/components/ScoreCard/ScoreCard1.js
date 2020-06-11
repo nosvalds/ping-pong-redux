@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ScoreCard from './ScoreCard';
-import { incrementP1 } from '../../data/actions';
+import { incrementP1 } from '../../data/actions/state';
 
 // Tricks
 // 1. Descruturing

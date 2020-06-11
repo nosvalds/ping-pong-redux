@@ -1,4 +1,5 @@
 const initial = {
+    gameId: "",
     showSettings: true,
     player1: 0,
     player2: 0,
