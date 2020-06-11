@@ -36,7 +36,7 @@ const GameHistory = ({
                                 scope="row" 
                                 rowSpan="2"
                             >
-                                Not Complete
+                                { translations.not_complete[language] }
                             </th>
                         }
                         <td>{ game.player_1.score }</td>
