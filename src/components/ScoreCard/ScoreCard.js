@@ -1,5 +1,7 @@
 import React from 'react';
 import translations from '../translations.json'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusSquare } from '@fortawesome/free-solid-svg-icons'
 
 const ScoreCard = ({ 
     server, 
@@ -26,7 +28,7 @@ const ScoreCard = ({
                     onClick={ () => handleIncrement(player) }
                     disabled={ gameOver }
                 >
-                    +
+                    <FontAwesomeIcon icon={faPlusSquare} />
                 </button>
             </div>
         </div>

@@ -1,5 +1,7 @@
 import React from 'react';
 import translations from '../translations.json'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const GameHistory = ({ 
     gameHistory, 
@@ -77,7 +79,7 @@ const GameHistory = ({
                                     className="btn btn-outline-danger btn-sm"
                                     onClick={ () => handleDelete(game.id) }
                                 >
-                                    &times;
+                                    <FontAwesomeIcon icon={faTrashAlt} />
                                 </button>
                             </td>
                         </tr>
