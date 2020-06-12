@@ -85,7 +85,7 @@ const Settings = ({
             </div>
             <button 
                 type="submit"
-                className="btn btn-primary"
+                className="btn btn-success"
             >
                 {`${translations.start_game[language]}`}
             </button>
