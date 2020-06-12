@@ -46,7 +46,7 @@ export const getGameHistory = () => (dispatch) => {
 
 export const deleteGame = (id) => {
     return (dispatch) => {
-        axios.delete(`${id}`).then(({ data }) => {
+        axios.delete(`${id}`).then(() => {
             dispatch(removeGame(id)) 
         })
     }
