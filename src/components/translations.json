@@ -54,6 +54,10 @@
    "continue": {
        "English": "Continue",
        "Esperanto": "Daŭrigu"
+   },
+   "game_history": {
+       "English": "Game History",
+       "Esperanto": "Ludhistorio"
    }
 
 }

@@ -3,7 +3,7 @@ import React from 'react';
 const Header = ({ title }) => (
     <header className="jumbotron mt-1 mb-4 bg-primary">
             <h1 
-                className="text-light display-4"
+                className="text-light display-3"
             >
                 { title }
             </h1>
