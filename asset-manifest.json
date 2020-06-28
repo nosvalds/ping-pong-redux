@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ping-pong-redux/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/ping-pong-redux/static/js/main.72b9469d.chunk.js",
+    "main.js.map": "/ping-pong-redux/static/js/main.72b9469d.chunk.js.map",
+    "runtime-main.js": "/ping-pong-redux/static/js/runtime-main.8007d502.js",
+    "runtime-main.js.map": "/ping-pong-redux/static/js/runtime-main.8007d502.js.map",
+    "static/js/2.81126714.chunk.js": "/ping-pong-redux/static/js/2.81126714.chunk.js",
+    "static/js/2.81126714.chunk.js.map": "/ping-pong-redux/static/js/2.81126714.chunk.js.map",
+    "index.html": "/ping-pong-redux/index.html",
+    "precache-manifest.7d775ce2153d4db48da209276171bd86.js": "/ping-pong-redux/precache-manifest.7d775ce2153d4db48da209276171bd86.js",
+    "service-worker.js": "/ping-pong-redux/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/ping-pong-redux/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.81126714.chunk.js.LICENSE.txt": "/ping-pong-redux/static/js/2.81126714.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8007d502.js",
+    "static/js/2.81126714.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.72b9469d.chunk.js"
+  ]
+}
