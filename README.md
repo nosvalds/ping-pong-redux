@@ -1,6 +1,6 @@
-#
-Week 11 - DevelopMe Coding Fellowship project
+# Week 11 - DevelopMe Coding Fellowship project
 
+## Challenge Location
 https://github.com/develop-me/bootcamp--week-11--redux/tree/master/challenges
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
