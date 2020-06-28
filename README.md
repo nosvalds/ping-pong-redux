@@ -1,3 +1,8 @@
+#
+Week 11 - DevelopMe Coding Fellowship project
+
+https://github.com/develop-me/bootcamp--week-11--redux/tree/master/challenges
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
